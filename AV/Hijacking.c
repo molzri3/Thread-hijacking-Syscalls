@@ -1,3 +1,15 @@
+/*
+    Hijacking.c - Thread hijacking and shellcode injection
+    -----------------------------------------------------
+    Purpose:
+        - Handles the process of hijacking threads and injecting shellcode into remote processes.
+    Main Functions:
+        - Suspends, modifies, and resumes threads in the target process.
+        - Allocates memory and writes shellcode to remote processes.
+        - Finds and opens remote threads for hijacking.
+    Role in Project:
+        - Provides the mechanisms for executing arbitrary code in the context of another process, supporting advanced injection techniques.
+*/
 #include <Windows.h>
 
 
@@ -119,7 +131,7 @@ BOOL InjectShellcodeToRemoteProcess(
 
     // 2) Pause before writing
 #ifdef DEBUG
-    PRINTA("[#] Press <Enter> to write payload…");
+    PRINTA("[#] Press <Enter> to write payload");
 #endif // DEBUG
 
     // 3) Write shellcode
@@ -347,7 +359,7 @@ BOOL RemoteInjectAndHijack(
         goto cleanup;
     }
 
-    // 4) Hijack that thread’s context to point at our shellcode
+    // 4) Hijack that threads context to point at our shellcode
     if (!HijackThread(hThread, pRemoteAddr)) {
 #ifdef DEBUG
         PRINTA("[!] Thread hijack failed (TID=%u)\n", dwThreadId);

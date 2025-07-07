@@ -1,5 +1,14 @@
 /*
-	file that contians the CRT functions replacement, in addition to the string hashing functions
+	WinApi.c - CRT and string hashing utilities
+	------------------------------------------
+	Purpose:
+		- Provides replacements for standard CRT functions to reduce dependencies and avoid detection.
+		- Implements string hashing functions for API and module resolution.
+	Main Functions:
+		- Jenkins one-at-a-time hash for ASCII and wide strings.
+		- Custom implementations of memset, memcpy, and character case conversion.
+	Role in Project:
+		- Supports API hashing and memory operations used throughout the loader and injection routines.
 */
 
 #include <Windows.h>

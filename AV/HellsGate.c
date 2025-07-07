@@ -1,8 +1,13 @@
 ﻿/*
-	file that contians the functions needed to implement hellsgate
-		- RtlGetThreadEnvironmentBlock: return a pointer to the 'TEB' structure
-		- GetImageExportDirectory: return a pointer to the 'IMAGE_EXPORT_DIRECTORY' structure
-		- GetVxTableEntry: used to get the address and the ssn of a syscall
+	HellsGate.c - Direct syscall invocation utilities
+	-----------------------------------------------
+	Purpose:
+		- Implements the HellsGate technique for direct system call invocation, bypassing user-mode hooks.
+	Main Functions:
+		- Retrieves the Thread Environment Block (TEB) and export directory of modules.
+		- Locates syscall numbers and addresses for direct invocation.
+	Role in Project:
+		- Enables stealthy and reliable use of Windows syscalls, supporting injection and anti-analysis routines.
 */
 
 #include <Windows.h>

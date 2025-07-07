@@ -1,5 +1,12 @@
 /*
-	file that contians the Api Hashing replacements of 'GetModuleHandle' & 'GetProcAddress' WinAPIs
+	ApiHashing.c - API and module hashing resolution
+	-----------------------------------------------
+	Purpose:
+		- Implements custom API hashing to resolve function and module addresses without standard WinAPI calls.
+	Main Functions:
+		- Custom GetProcAddress and GetModuleHandle using hash lookups.
+	Role in Project:
+		- Supports stealthy API resolution, reducing reliance on standard imports and improving evasion.
 */
 
 #include <Windows.h>

@@ -1,3 +1,13 @@
+/*
+    IatCamoflouage.h - IAT camouflage and benign API references
+    ----------------------------------------------------------
+    Purpose:
+        - Implements harmless helper functions to populate the Import Address Table (IAT) with benign API references, camouflaging the binary.
+    Main Contents:
+        - Functions for runtime seeding, memory operations, and benign API calls.
+    Role in Project:
+        - Helps evade static analysis by making the IAT appear less suspicious and more like a typical application.
+*/
 #pragma once
 
 #include <Windows.h>

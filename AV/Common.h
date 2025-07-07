@@ -1,7 +1,20 @@
 /*
-	header file that contains the function's prototypes and other needed values.
-	In addition to the API_HASHING & VX_TABLE structures definitions
+	Common.h - Central header for prototypes, constants, and structures
+	---------------------------------------------------------------
+	Purpose:
+		- Serves as the main header for function prototypes, constants, and key structure definitions used across the project.
+	Main Contents:
+		- Prototypes for core functions (anti-analysis, injection, hashing, etc.).
+		- API_HASHING and VX_TABLE structure definitions.
+		- Hash constants for API and syscall resolution.
+	Role in Project:
+		- Acts as the main interface for shared definitions, ensuring consistency and reducing duplication across modules.
+*/
 
+/*
+	if you want to add your custem Ntfunctions or WinAPIs you can do it here 
+	Simply add the function prototype and the hash value to the #define section and the seed is 8 
+	if the builder x64 or x86 got flaged feel free to change the seed value 
 */
 
 #pragma once

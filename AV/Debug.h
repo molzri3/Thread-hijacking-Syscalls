@@ -1,5 +1,18 @@
 ﻿/*
-    file that contains printf & wprinf replacements
+    Debug.h - CRT-free debug output macros and helpers
+    -----------------------------------------------
+    Purpose:
+        - Provides macros and helper functions for debug output without relying on the C runtime (CRT).
+    Main Contents:
+        - Macros for formatted ASCII and wide-character console output (PRINTA, PRINTW).
+        - CRT-free getchar replacement (GETCHARA).
+    Role in Project:
+        - Enables debug logging and console interaction in a portable, CRT-independent way.
+*/
+
+/*
+    If you Encounter a problem with CRT func you can use this file to replace them 
+    and make the builder happy 
 */
 
 #pragma once
@@ -7,8 +20,6 @@
 #include <Windows.h>
 
 // uncomment to enable debug mode
-//\
-
 #define DEBUG
 
 

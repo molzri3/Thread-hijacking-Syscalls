@@ -1,7 +1,12 @@
 /*
-    contains windows structures and enumerations needed.
-    e.g.: PEB + TEB structures
-    e.g.: SYSTEM_INFORMATION_CLASS enum
+    Structs.h - Windows internal structures and enums
+    -----------------------------------------------
+    Purpose:
+        - Defines Windows internal structures and enumerations required for low-level operations.
+    Main Contents:
+        - PEB, TEB, LDR_DATA_TABLE_ENTRY, SYSTEM_INFORMATION_CLASS, and related structures/enums.
+    Role in Project:
+        - Provides the necessary data structures for direct system call usage, process/thread enumeration, and memory manipulation.
 */
 
 #pragma once

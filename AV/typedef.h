@@ -1,5 +1,12 @@
 /*
-	header file that contains the defintions of the WinAPIs used
+	typedef.h - WinAPI function pointer typedefs
+	-------------------------------------------
+	Purpose:
+		- Defines typedefs for Windows API function pointers used throughout the project.
+	Main Contents:
+		- Typedefs for WinAPI function pointers (e.g., OpenProcess, SetWindowsHookExW, etc.).
+	Role in Project:
+		- Centralizes API function pointer definitions for use in dynamic API resolution and hashing.
 
 */
 

