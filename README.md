@@ -7,7 +7,7 @@
 ---
 ## Update 
 The project is currently working and, for now, successfully bypasses Windows Defender and Kaspersky. I haven't had enough time to test the rest of the AVs; some detections were caused by hooks in ntdll. You can switch from Hell's Gate to Hell's Hall to resolve that issue.
-If your executable gets flagged, try this classic trick:
+If your executable gets flagged, try this classic trick:  
 1- transfer your exe to any linux distru  
 2- add 150mb of null bytes like this : ```dd if=/dev/zero bs=1M count=150 >> setup.exe```   
 3- Use HTTPS with a self-signed SSL certificate.  
